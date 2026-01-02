@@ -81,14 +81,12 @@ else:
 # ---------- FEEDBACK SECTION ----------
 st.subheader("Your Feedback on These Predictions")
 
-feedback_score = st.slider(
-    "How useful were these predictions? (1 = Poor, 5 = Excellent)",
-    min_value=1,
-    max_value=5,
-    value=4,
-    key="feedback_score",
-)
-feedback_text = st.text_area("Comments (optional)", key="feedback_text")
+feedback_score = st.slider("How useful were this Model v1 predictions? (1 = Poor, 5 = Excellent)", min_value=1, max_value=5, value=4, key="feedback_score",)
+feedback_text = st.text_area("Comments for Model v1 (optional)", key="feedback_text")
+
+
+feedback_score_v2 = st.slider("How useful were this Model v2 predictions? (1 = Poor, 5 = Excellent)", min_value=1, max_value=5, value=4, key="feedback_score_v2",)
+feedback_text_v2 = st.text_area("Comments for Model v2 (optional)", key="feedback_text_v2")
 
 # ---------- BUTTON 2: SUBMIT FEEDBACK ----------
 if st.button("Submit Feedback"):
@@ -112,8 +110,8 @@ if st.button("Submit Feedback"):
             input_summary=st.session_state["input_summary"],
             prediction=st.session_state["new_pred"],
             latency_ms=st.session_state["latency_ms"],
-            feedback_score=feedback_score,
-            feedback_text=feedback_text,
+            feedback_score=feedback_score_v2,
+            feedback_text=feedback_text_v2,
         )
 
         st.success(
